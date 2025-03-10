@@ -1,0 +1,22 @@
+services:
+  order-db:
+    container_name: order-db
+    image: postgres:15
+    volumes:
+      - restaurant_volume:/var/lib/postgresql/data
+      - ./docker/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  order:
+    image: order
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+volumes:
+  restaurant_volume:

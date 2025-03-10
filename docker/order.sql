@@ -90,11 +90,11 @@ CREATE TABLE public."user" (
 -- DROP TABLE public.offer;
 
 CREATE TABLE public.offer (
-	offer_id int4 DEFAULT nextval('offering_offering_id_seq'::regclass) NOT NULL,
+	offer_id serial4 NOT NULL,
 	"date" date NOT NULL,
 	restaurant_id int4 NULL,
 	CONSTRAINT menu_pk PRIMARY KEY (offer_id),
-	CONSTRAINT offering_restaurant_fk FOREIGN KEY (restaurant_id) REFERENCES public.restaurant(id)
+	CONSTRAINT offer_restaurant_fk FOREIGN KEY (restaurant_id) REFERENCES public.restaurant(id)
 );
 
 

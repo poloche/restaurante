@@ -24,3 +24,11 @@ once it is created, we can start the applications
 ```commandline
  docker compose up -d
 ```
+once the applications are running you can run some tests loading the 
+postman collection to your postman locally and loading data 
+*  save user
+* save delivery
+* save restaurant
+* save products
+* save offers
+* save order
